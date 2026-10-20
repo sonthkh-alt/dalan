@@ -70,7 +70,7 @@ const RECIPIENTS = {
     introLead: 'Hôm nay, anh cùng em Luân, Tùng và Bách xin dành một khoảng lặng để nói lời cảm ơn. Vì những ngày em gánh việc của một Giám đốc, một Chủ tịch hiệp hội với hơn 200 doanh nghiệp hội viên, và vẫn về nhà kịp bữa cơm tối. Vì em làm được tất cả những điều ấy mà hiếm khi kể là mình mệt.',
     introDetails: ['GIÁM ĐỐC CÔNG TY CP DẠ LAN', 'CHỦ TỊCH HIỆP HỘI DOANH NHÂN NỮ THANH HÓA', '01 TRÁI TIM CỦA CẢ NHÀ'],
     introNote: 'Em ơi, mẹ ơi,<br>có thư cho em…',
-    photo: { src: 'assets/photos/lien-va-bach.jpg', alt: 'Liên trong tà áo dài vàng, bé Bách ôm mẹ', focus: '50% 20%' },
+    photo: { src: 'assets/photos/lien-va-me.jpg', alt: 'Liên bên mẹ Loan', focus: '50% 50%' },
     letter: {
       salutation: 'Gửi em – Nguyễn Thị Hồng Liên, vợ, mẹ và chị của chúng tôi,',
       body: [
@@ -121,7 +121,7 @@ const RECIPIENTS = {
     introLead: 'Hôm nay, Luân cùng anh Sơn, Tùng và Bách xin dành một khoảng lặng để nói lời cảm ơn. Vì sự dịu dàng em mang về nhà này, vì những bữa cơm sum họp có thêm tiếng cười, và vì em đã chọn trở thành một phần của gia đình Dạ Lan.',
     introDetails: ['01 NGƯỜI MỢ DỊU DÀNG', '03 LỜI CHÚC TỪ CẢ NHÀ', '01 TẤM LÒNG TRÂN QUÝ'],
     introNote: 'Mợ ơi, em ơi,<br>có thư cho em…',
-    photo: { src: 'assets/photos/bao-anh-va-tho.jpg', alt: 'Bảo Anh bế bé Thỏ trong ngày Tết', focus: '50% 50%' },
+    photo: { src: 'assets/photos/bao-anh-va-bach.jpg', alt: 'Mợ Bảo Anh trong tà áo dài vàng, bé Bách ôm mợ', focus: '50% 20%' },
     letter: {
       salutation: 'Gửi em – Bảo Anh, mợ của các cháu và vợ của Luân,',
       body: [
@@ -414,8 +414,12 @@ $('#share-gift').onclick = async () => {
 /* ---------- Album gia đình ---------- */
 const PHOTOS = [
   { src: 'assets/photos/ca-nha-ao-dai.jpg', tag: 'CẢ NHÀ', cap: 'Cả nhà trong tà áo dài – bà Loan ở giữa, xung quanh là con cháu đủ mặt.' },
-  { src: 'assets/photos/ba-the-he.jpg', tag: 'BA THẾ HỆ', cap: 'Bà Loan, mẹ Liên và Bách – ba thế hệ trong một khung hình.' },
-  { src: 'assets/photos/tet-sum-hop.jpg', tag: 'TẾT SUM HỌP', cap: 'Ngày đầu năm, cả nhà quây quần: có cả bé Thỏ trong lòng mợ Bảo Anh.' },
+  { src: 'assets/photos/nha-son-lien.jpg', tag: 'NHÀ MÌNH', cap: 'Nhà Sơn – Liên chụp vội trước cổng: con ôm chặt giữa bố và mẹ, nụ cười nào cũng rạng rỡ.' },
+  { src: 'assets/photos/lien-va-me.jpg', tag: 'HAI MẸ CON', cap: 'Liên và mẹ Loan – hai mẹ con, một nụ cười giống nhau.' },
+  { src: 'assets/photos/san-khau-ba-lien-son.jpg', tag: 'TRÊN SÂN KHẤU', cap: 'Bà Loan trong tà áo dài nhung đỏ thêu sen, hai bên là con gái Liên và con rể Sơn.' },
+  { src: 'assets/photos/ba-the-he.jpg', tag: 'BA THẾ HỆ', cap: 'Bà Loan, mợ Bảo Anh và Bách – ba thế hệ trong một khung hình.' },
+  { src: 'assets/photos/tet-sum-hop.jpg', tag: 'TẾT SUM HỌP', cap: 'Ngày đầu năm, cả nhà quây quần: bé Thỏ ngồi gọn trong lòng Liên, Bách và Tùng áo dài vàng bên cạnh.' },
+  { src: 'assets/photos/lien-va-tho.jpg', tag: 'TẾT', cap: 'Liên bế cháu Thỏ ngày Tết, Bách ngồi sát bên, bà ngoại cười phía sau.' },
   { src: 'assets/photos/ba-tung-bach.jpg', tag: 'BÀ NGOẠI', cap: 'Bà Loan cùng Tùng và Bách – áo dài đỏ, nụ cười cũng đỏ như Tết.' },
   { src: 'assets/photos/ba-va-cac-chau.jpg', tag: 'NGÀY XƯA', cap: 'Bà ngoại và các cháu ngày còn bé xíu – ảnh càng cũ càng quý.' },
   { src: 'assets/photos/ba-va-hai-chau-san-bay.jpg', tag: 'ĐI CHƠI', cap: 'Bà ngoại đội nón lá dẫn Tùng và Bách đi chơi – hai cháu ngồi trên vali, bà đứng sau cười.' },
