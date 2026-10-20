@@ -16,45 +16,46 @@ const RECIPIENTS = {
     envelopeHonorific: 'Kính gửi mẹ · bà',
     cardHonorific: 'Kính gửi mẹ · bà',
     introScript: 'Người giữ lửa cho cả nhà, và cho cả Dạ Lan.',
-    introLead: 'Hôm nay, chúng con – con trai, con rể và các cháu trai – xin dành một khoảng lặng để nói lời cảm ơn. Vì một đời tảo tần, vì bàn tay đã gây dựng Dạ Lan từ hai cơ sở nhỏ và 52 người lao động, và vì mâm cơm gia đình chưa một ngày nào thiếu hơi ấm.',
+    introLead: 'Hôm nay, chúng con – Luân, Sơn, Tùng và Bách – xin dành một khoảng lặng để nói lời cảm ơn. Vì một đời tảo tần, vì bàn tay đã gây dựng Dạ Lan từ hai cơ sở nhỏ và 52 người lao động, và vì mâm cơm gia đình chưa một ngày nào thiếu hơi ấm.',
     introDetails: ['TỪ NĂM 2000 ĐẾN HÔM NAY', '03 LỜI CHÚC TỪ CON CHÁU', '01 TẤM LÒNG BIẾT ƠN'],
     introNote: 'Mẹ ơi, bà ơi,<br>có thư cho mẹ…',
+    photo: { src: 'assets/photos/ba-tung-bach.jpg', alt: 'Bà Loan cùng hai cháu Tùng và Bách trong áo dài đỏ' },
     letter: {
       salutation: 'Kính gửi mẹ, kính gửi bà – Trịnh Thị Loan,',
       body: [
-        'Nhân ngày Phụ nữ Việt Nam 20/10, những người đàn ông trong nhà – con trai, con rể và các cháu – xin được viết đôi dòng gửi mẹ. Bình thường, chúng con quen nói với mẹ bằng việc làm nhiều hơn bằng lời. Hôm nay xin được nói bằng lời một lần.',
+        'Nhân ngày Phụ nữ Việt Nam 20/10, những người đàn ông trong nhà – con trai Luân, con rể Sơn và hai cháu Tùng, Bách – xin được viết đôi dòng gửi mẹ. Bình thường, chúng con quen nói với mẹ bằng việc làm nhiều hơn bằng lời. Hôm nay xin được nói bằng lời một lần.',
         'Chúng con biết câu chuyện Dạ Lan bắt đầu từ năm 2000, từ hai cơ sở nhỏ, 52 người lao động và một số vốn rất khiêm tốn. Để từ đó có một Dạ Lan Center, một Dạ Lan Star, một Dạ Lan Event, một nhà máy, và hơn hai trăm gia đình có việc làm ổn định – là bao nhiêu đêm mẹ thức, bao nhiêu chuyến đi sớm về muộn, bao nhiêu lần mẹ đứng ra gánh phần khó nhất.',
         'Nhưng điều chúng con nhớ nhất không phải những tấm bằng khen, dù mẹ có rất nhiều. Là cách mẹ vẫn tự tay nêm nồi canh cho cả nhà sau một ngày dài. Là cách mẹ dạy con cháu rằng làm ăn tử tế trước, rồi mới nói đến lời lãi. Là chỗ dựa lặng lẽ mà bất cứ ai trong nhà gặp chuyện đều tìm về đầu tiên.',
         'Mẹ đã trao cho chúng con một gia đình và cả một sự nghiệp để tiếp nối. Chúng con xin hứa sẽ giữ gìn cả hai bằng sự tử tế mà mẹ đã dạy.'
       ],
       wishes: 'Nhân ngày 20/10, chúng con kính chúc mẹ luôn mạnh khỏe, bình an, sống vui bên con cháu. Mong mẹ cho phép mình nghỉ ngơi nhiều hơn một chút, tin tưởng vào thế hệ sau nhiều hơn một chút, và mỗi ngày đều có một niềm vui nho nhỏ. Chúc mẹ một ngày thật đẹp, cùng nhiều ngày đẹp như thế.',
       closing: 'Với tất cả lòng biết ơn và kính yêu,',
-      signers: ['Con trai Luân', 'Con rể', 'Các cháu trai']
+      signers: ['Con trai Luân', 'Con rể Sơn', 'Hai cháu Tùng và Bách']
     },
     milestones: [
       { title: 'Năm 2000 – bắt đầu từ 52 người', body: 'Dạ Lan ra đời từ việc chuyển đổi một bộ phận của doanh nghiệp Nhà nước, với hai cơ sở, 52 người lao động và 700 triệu đồng vốn điều lệ. Hội đồng quản trị khi ấy có ba thành viên – cả ba đều là phụ nữ. Giữa những năm khó khăn nhất, mẹ đã chọn giữ người, giữ nghề, giữ chữ tín.', quote: 'Bắt đầu nhỏ, nhưng không bao giờ làm nhỏ.', icon: '✧', book: 'Một khởi đầu<br>đáng nhớ.', tab: ['Năm 2000', 'Những bước đầu tiên'] },
       { title: 'Những năm mở rộng', body: 'Từ 2005, Dạ Lan xây thêm cơ sở, trở thành một trong những đơn vị đầu tiên của tỉnh làm tổ chức sự kiện (2008), đầu tư dây chuyền nước tinh khiết, rồi năm 2012 mua lại Công ty Toàn Hà để biến thành trung tâm sự kiện. Số người lao động từ 52 lên hơn 200. Mỗi quyết định ấy đều có dấu tay của mẹ.', quote: 'Mỗi viên gạch đều có mồ hôi của mẹ.', icon: '⌘', book: 'Cùng nhau,<br>đi xa hơn.', tab: ['Mở rộng', 'Từ 52 lên hơn 200 người'] },
       { title: 'Những danh hiệu – và điều ở phía sau', body: 'Huân chương Lao động, Bằng khen của Thủ tướng Chính phủ, Chiến sĩ thi đua toàn quốc, Huy chương vàng “Đầu bếp tài hoa”, Cúp “Bông hồng vàng”, Nữ doanh nhân tiêu biểu toàn quốc… Chúng con tự hào về từng danh hiệu ấy. Nhưng tự hào hơn cả là ở nhà, mẹ vẫn là mẹ, vẫn là bà – giản dị, ấm áp và luôn hỏi “các con ăn gì chưa”.', quote: 'Danh hiệu lớn nhất của mẹ là cả nhà này.', icon: '❀', book: 'Bông hồng vàng<br>của cả nhà.', tab: ['Danh hiệu', 'Và điều ở phía sau'] },
-      { title: 'Hôm nay – người giữ lửa', body: 'Ở vị trí Chủ tịch Hội đồng quản trị, mẹ vẫn là người được hỏi ý kiến đầu tiên và là người lo xa nhất. Ở nhà, mẹ là bà ngoại của các cháu, là người giữ cho mâm cơm sum họp mỗi dịp lễ luôn đủ mặt. Chúng con mong từ nay mẹ sẽ để mình được nghỉ ngơi nhiều hơn, vì phần còn lại đã có chúng con.', quote: 'Mẹ cứ yên tâm, đã có chúng con.', icon: '↗', book: 'Phần còn lại,<br>đã có chúng con.', tab: ['Hôm nay', 'Người giữ lửa'] }
+      { title: 'Hôm nay – người giữ lửa', body: 'Ở vị trí Chủ tịch Hội đồng quản trị, mẹ vẫn là người được hỏi ý kiến đầu tiên và là người lo xa nhất. Ở nhà, mẹ là bà ngoại của Tùng, Bách, Bảo Linh và Thỏ, là người giữ cho mâm cơm sum họp mỗi dịp lễ luôn đủ mặt. Chúng con mong từ nay mẹ sẽ để mình được nghỉ ngơi nhiều hơn, vì phần còn lại đã có chúng con.', quote: 'Mẹ cứ yên tâm, đã có chúng con.', icon: '↗', book: 'Phần còn lại,<br>đã có chúng con.', tab: ['Hôm nay', 'Người giữ lửa'] }
     ],
     cards: [
       { ico: '🍲', title: 'Nồi canh mẹ nấu', small: 'BỮA CƠM NHÀ', back: 'Dù bận đến đâu, mẹ vẫn muốn tự tay nêm nồi canh. Người làm “Tinh hoa ẩm thực xứ Thanh” cho hàng nghìn thực khách, nhưng món ngon nhất với chúng con vẫn là bữa cơm ở nhà.' },
       { ico: '🏮', title: 'Chữ tín trước, lời lãi sau', small: 'CÁCH MẸ LÀM ĂN', back: 'Mẹ dạy chúng con rằng làm ăn phải tử tế trước. Chứng nhận ISO, bằng khen hay danh hiệu chỉ là kết quả đi sau của điều đó.' },
       { ico: '🌱', title: 'Giữ người trong lúc khó', small: 'NHỮNG NĂM 2000', back: 'Khi công ty còn 52 người và rất ít vốn, mẹ chọn giữ người, giữ nghề. Hơn 200 gia đình hôm nay có việc làm ổn định là từ lựa chọn ấy.' },
-      { ico: '👵', title: 'Bà ngoại của các cháu', small: 'Ở NHÀ', back: 'Các cháu không để tâm mẹ là Chủ tịch Hội đồng quản trị. Các cháu chỉ biết bà ngoại hay để phần đồ ăn ngon, hay hỏi “cháu học hành thế nào”.' },
+      { ico: '👵', title: 'Bà ngoại của các cháu', small: 'Ở NHÀ', back: 'Tùng, Bách, Bảo Linh và bé Thỏ không để tâm bà là Chủ tịch Hội đồng quản trị. Các cháu chỉ biết bà ngoại hay để phần đồ ăn ngon, hay dắt đi chơi, hay hỏi “cháu học hành thế nào”.' },
       { ico: '🧭', title: 'Lo xa cho cả nhà', small: 'ĐIỂM TỰA', back: 'Bất cứ ai trong nhà gặp chuyện khó, người được tìm đến đầu tiên vẫn là mẹ. Mẹ ít nói, nhưng chưa bao giờ để ai một mình.' },
       { ico: '🤲', title: 'Dạy con cháu sẻ chia', small: 'TẤM LÒNG', back: 'Từ mẹ, cả nhà học được cách cho đi – từ những phần quà Tết cho người nghèo đến việc đỡ đầu trẻ mồ côi mà con gái mẹ đang tiếp nối.' }
     ],
     gratitude: 'Có những người gây dựng cả một sự nghiệp,<br>và vẫn giữ cho bếp nhà luôn ấm.',
     voices: [
       { label: 'CON TRAI', name: 'Luân', title: 'Gửi mẹ', text: ['Mẹ ơi, con lớn lên trong những năm Dạ Lan còn nhỏ, nên con hiểu mẹ đã đi qua những gì để có hôm nay. Con không nói nhiều, nhưng con nhìn thấy hết.', 'Chúc mẹ 20/10 thật vui. Mẹ cứ giao việc cho chúng con nhiều hơn, và dành thời gian cho mình nhiều hơn. Con hứa sẽ sống đúng như cách mẹ đã dạy.'], sign: 'Con trai của mẹ' },
-      { label: 'CON RỂ', name: 'Con rể', title: 'Kính gửi mẹ', text: ['Con may mắn được về làm con trong một gia đình có mẹ. Mẹ không chỉ cho con một người vợ tuyệt vời, mà còn dạy con bằng chính cách mẹ sống: làm việc tử tế, lo cho người khác trước, và không bao giờ bỏ ai lại phía sau.', 'Nhân ngày 20/10, con kính chúc mẹ mạnh khỏe, an vui bên con cháu. Mẹ đã lo cho cả nhà mấy chục năm, giờ xin mẹ để chúng con lo cho mẹ.'], sign: 'Con rể của mẹ' },
-      { label: 'CÁC CHÁU', name: 'Các cháu trai', title: 'Kính gửi bà ngoại', text: ['Bà ngoại ơi, chúng cháu chúc bà 20/10 thật vui và thật nhiều sức khỏe. Chúng cháu thích nhất là những bữa cơm có bà, và những lúc bà hỏi chúng cháu học hành thế nào.', 'Chúng cháu sẽ cố gắng học giỏi, ngoan ngoãn để bà vui. Bà nhớ giữ sức khỏe để còn đi chơi với chúng cháu nhiều nữa nhé!'], sign: 'Các cháu trai của bà' }
+      { label: 'CON RỂ', name: 'Sơn', title: 'Kính gửi mẹ', text: ['Con may mắn được về làm con trong một gia đình có mẹ. Mẹ không chỉ cho con một người vợ tuyệt vời, mà còn dạy con bằng chính cách mẹ sống: làm việc tử tế, lo cho người khác trước, và không bao giờ bỏ ai lại phía sau.', 'Nhân ngày 20/10, con kính chúc mẹ mạnh khỏe, an vui bên con cháu. Mẹ đã lo cho cả nhà mấy chục năm, giờ xin mẹ để chúng con lo cho mẹ.'], sign: 'Con rể Sơn' },
+      { label: 'CÁC CHÁU', name: 'Tùng & Bách', title: 'Kính gửi bà ngoại', text: ['Bà ngoại ơi, Tùng và Bách chúc bà 20/10 thật vui và thật nhiều sức khỏe. Chúng cháu thích nhất là những bữa cơm có bà, những chuyến đi có bà, và những lúc bà hỏi chúng cháu học hành thế nào.', 'Chúng cháu sẽ cố gắng học giỏi, ngoan ngoãn để bà vui. Bà nhớ giữ sức khỏe để còn đi chơi với chúng cháu – và cả Bảo Linh, bé Thỏ – nhiều nữa nhé!'], sign: 'Tùng và Bách' }
     ],
     candle: 'Mẹ đã dành cả đời chăm chút cho người khác – cho công ty, cho con cháu. Với ngọn nến nhỏ này, chúng con muốn gửi một điều ước dành cho chính mẹ.',
-    card: { text: 'Cảm ơn mẹ vì một đời tảo tần cho cả nhà.<br>Chúc mẹ luôn mạnh khỏe, bình an và nhiều niềm vui.', sign: 'CON TRAI · CON RỂ · CÁC CHÁU TRAI<br>GIA ĐÌNH DẠ LAN · 20/10/2026' },
+    card: { text: 'Cảm ơn mẹ vì một đời tảo tần cho cả nhà.<br>Chúc mẹ luôn mạnh khỏe, bình an và nhiều niềm vui.', sign: 'LUÂN · SƠN · TÙNG · BÁCH<br>GIA ĐÌNH DẠ LAN · 20/10/2026' },
     closing: 'Chúng con mong sẽ sống tử tế hơn, làm việc cẩn thận hơn và biết lo cho nhau nhiều hơn – như cách mẹ đã làm suốt mấy chục năm. Đó là cách chúng con muốn trân trọng những điều mẹ đã dành cho gia đình này.',
-    closingSignatures: ['Con trai Luân', 'Con rể', 'Các cháu trai'],
+    closingSignatures: ['Con trai Luân', 'Con rể Sơn', 'Tùng', 'Bách'],
     pronoun: 'mẹ'
   },
 
@@ -66,45 +67,46 @@ const RECIPIENTS = {
     envelopeHonorific: 'Gửi vợ · mẹ · chị',
     cardHonorific: 'Gửi em · vợ · mẹ · chị',
     introScript: 'Người đứng đầu một công ty, một hiệp hội – và là trái tim của nhà mình.',
-    introLead: 'Hôm nay, anh cùng em Luân và các con xin dành một khoảng lặng để nói lời cảm ơn. Vì những ngày em gánh việc của một Giám đốc, một Chủ tịch hiệp hội với hơn 200 doanh nghiệp hội viên, và vẫn về nhà kịp bữa cơm tối. Vì em làm được tất cả những điều ấy mà hiếm khi kể là mình mệt.',
+    introLead: 'Hôm nay, anh cùng em Luân, Tùng và Bách xin dành một khoảng lặng để nói lời cảm ơn. Vì những ngày em gánh việc của một Giám đốc, một Chủ tịch hiệp hội với hơn 200 doanh nghiệp hội viên, và vẫn về nhà kịp bữa cơm tối. Vì em làm được tất cả những điều ấy mà hiếm khi kể là mình mệt.',
     introDetails: ['GIÁM ĐỐC CÔNG TY CP DẠ LAN', 'CHỦ TỊCH HIỆP HỘI DOANH NHÂN NỮ THANH HÓA', '01 TRÁI TIM CỦA CẢ NHÀ'],
     introNote: 'Em ơi, mẹ ơi,<br>có thư cho em…',
+    photo: { src: 'assets/photos/lien-va-bach.jpg', alt: 'Liên trong tà áo dài vàng, bé Bách ôm mẹ' },
     letter: {
       salutation: 'Gửi em – Nguyễn Thị Hồng Liên, vợ, mẹ và chị của chúng tôi,',
       body: [
-        'Anh viết những dòng này thay cho tất cả những người đàn ông trong nhà – anh, em Luân và các con. Bình thường chúng ta hay nói với nhau về công việc, về lịch họp, về đơn hàng. Hôm nay anh muốn nói về em.',
+        'Anh viết những dòng này thay cho tất cả những người đàn ông trong nhà – anh, em Luân, Tùng và Bách. Bình thường chúng ta hay nói với nhau về công việc, về lịch họp, về đơn hàng. Hôm nay anh muốn nói về em.',
         'Em là Giám đốc của một công ty hơn 200 người, kế thừa từ mẹ cả một sự nghiệp và không để nó dừng lại. Em là Chủ tịch Hiệp hội Doanh nhân nữ tỉnh Thanh Hóa, nơi hơn 200 doanh nghiệp đặt niềm tin, nơi mỗi năm hơn 10 tỷ đồng được gửi đến người nghèo và 133 em nhỏ mồ côi được đỡ đầu. Anh đã nhìn em đứng trên những sân khấu lớn, nói về trách nhiệm xã hội của nữ doanh nhân, và anh tự hào đến mức không biết nói gì.',
-        'Nhưng điều anh biết ơn nhất lại là những lúc rất nhỏ. Là em vẫn nhớ hôm nay đứa nào thi, đứa nào ốm. Là em về muộn nhưng vẫn ghé bếp xem cả nhà ăn gì. Là em mệt mà vẫn hỏi anh “hôm nay thế nào”. Anh biết em đã gánh nhiều hơn phần của mình, và gánh một cách rất lặng lẽ.',
+        'Nhưng điều anh biết ơn nhất lại là những lúc rất nhỏ. Là em vẫn nhớ hôm nay Tùng thi gì, Bách có ốm không. Là em về muộn nhưng vẫn ghé bếp xem cả nhà ăn gì. Là em mệt mà vẫn hỏi anh “hôm nay thế nào”. Anh biết em đã gánh nhiều hơn phần của mình, và gánh một cách rất lặng lẽ.',
         'Anh không hứa được những điều lớn. Anh chỉ hứa sẽ ở bên, sẽ chia việc nhà, sẽ là người đầu tiên em có thể dựa vào – khi ở ngoài kia em phải là người cho người khác dựa.'
       ],
       wishes: 'Nhân ngày 20/10, anh và cả nhà chúc em luôn mạnh khỏe, bình an và hạnh phúc. Mong những tâm huyết em dành cho Dạ Lan và cho các chị em doanh nhân được đáp lại bằng niềm vui, những ngày bận rộn luôn có khoảng nghỉ dịu dàng, và khi về nhà, em luôn thấy mình được yêu thương. Chúc em một ngày thật đẹp, cùng nhiều ngày đẹp như thế.',
       closing: 'Yêu em,',
-      signers: ['Chồng của em', 'cùng em Luân và các con']
+      signers: ['Sơn – chồng của em', 'cùng em Luân, Tùng và Bách']
     },
     milestones: [
       { title: 'Người vợ, người mẹ', body: 'Trước khi là Giám đốc hay Chủ tịch, em là vợ, là mẹ. Là người giữ nhịp cho cả nhà: ai đi học, ai đi làm, ai đang cần một lời động viên. Anh và các con quen với sự có mặt ấy đến mức nhiều khi quên cảm ơn.', quote: 'Nhà là nơi em không cần chức danh.', icon: '♡', book: 'Nhà mình,<br>nơi em là em.', tab: ['Ở nhà', 'Người vợ, người mẹ'] },
       { title: 'Người Giám đốc Dạ Lan', body: 'Nhận lấy công ty từ mẹ là nhận lấy một trách nhiệm rất nặng: hơn 200 người lao động, bốn thương hiệu – Dạ Lan Center, Dạ Lan Star, Dạ Lan Event, Dạ Lan Sport – một nhà máy, và một cái tên đã gắn với “Tinh hoa ẩm thực xứ Thanh”. Em không chỉ giữ, em đưa Dạ Lan đi tiếp: chứng nhận ISO 22000:2018, quản lý số, những sảnh tiệc được làm mới.', quote: 'Kế thừa là tiếp tục đi, không phải đứng lại.', icon: '⌘', book: 'Giữ lửa,<br>và thắp thêm.', tab: ['Dạ Lan', 'Người Giám đốc'] },
       { title: 'Người Chủ tịch hiệp hội', body: 'Ở Hiệp hội Doanh nhân nữ tỉnh Thanh Hóa, em là người đứng đầu một “ngôi nhà chung” của hơn 200 doanh nghiệp do phụ nữ làm chủ. Em nói về trách nhiệm xã hội không bằng khẩu hiệu mà bằng con số: hơn 10 tỷ đồng mỗi năm cho an sinh xã hội, hàng nghìn suất quà Tết, 133 trẻ mồ côi được đỡ đầu, những ngôi nhà được sửa lại.', quote: 'Bản lĩnh trong kinh doanh, giàu lòng nhân ái.', icon: '✦', book: 'Một ngôi nhà chung,<br>em là người giữ cửa.', tab: ['Hiệp hội', 'Người Chủ tịch'] },
-      { title: 'Chặng tiếp theo', body: 'Anh không biết em còn định đi xa đến đâu, nhưng anh biết chắc một điều: em không đi một mình. Phía sau em luôn có mẹ, có anh, có em Luân, có các con. Mong chặng tiếp theo em bớt vội hơn một chút, dành cho mình nhiều hơn một chút.', quote: 'Đi xa, nhưng luôn có nhà để về.', icon: '↗', book: 'Chặng tiếp theo,<br>có cả nhà cùng đi.', tab: ['Tiếp theo', 'Không đi một mình'] }
+      { title: 'Chặng tiếp theo', body: 'Anh không biết em còn định đi xa đến đâu, nhưng anh biết chắc một điều: em không đi một mình. Phía sau em luôn có mẹ, có anh, có em Luân, có Tùng và Bách. Mong chặng tiếp theo em bớt vội hơn một chút, dành cho mình nhiều hơn một chút.', quote: 'Đi xa, nhưng luôn có nhà để về.', icon: '↗', book: 'Chặng tiếp theo,<br>có cả nhà cùng đi.', tab: ['Tiếp theo', 'Không đi một mình'] }
     ],
     cards: [
-      { ico: '🌅', title: 'Dậy sớm hơn cả nhà', small: 'MỖI SÁNG', back: 'Em luôn là người dậy đầu tiên, lo cho các con rồi mới lo cho mình. Anh thấy, dù không phải lúc nào cũng nói.' },
+      { ico: '🌅', title: 'Dậy sớm hơn cả nhà', small: 'MỖI SÁNG', back: 'Em luôn là người dậy đầu tiên, lo cho Tùng, cho Bách rồi mới lo cho mình. Anh thấy, dù không phải lúc nào cũng nói.' },
       { ico: '🗂️', title: 'Hai chiếc ghế, một con người', small: 'GIÁM ĐỐC · CHỦ TỊCH', back: 'Vừa điều hành Dạ Lan, vừa dẫn dắt hơn 200 doanh nghiệp do phụ nữ làm chủ. Em làm cả hai mà hiếm khi than mình mệt.' },
-      { ico: '🤲', title: '133 đứa trẻ', small: 'TRÁCH NHIỆM XÃ HỘI', back: 'Em và các chị em trong hiệp hội đỡ đầu 133 trẻ mồ côi, gửi hơn 10 tỷ đồng mỗi năm cho người nghèo. Các con nhìn em và học được cách cho đi.' },
+      { ico: '🤲', title: '133 đứa trẻ', small: 'TRÁCH NHIỆM XÃ HỘI', back: 'Em và các chị em trong hiệp hội đỡ đầu 133 trẻ mồ côi, gửi hơn 10 tỷ đồng mỗi năm cho người nghèo. Tùng và Bách nhìn em và học được cách cho đi.' },
       { ico: '🍚', title: 'Vẫn ghé bếp dù về muộn', small: 'BUỔI TỐI', back: 'Về nhà sau một ngày họp dài, điều đầu tiên em làm vẫn là xem cả nhà đã ăn gì. Đó là điều anh muốn giữ mãi.' },
-      { ico: '💬', title: '“Hôm nay thế nào?”', small: 'CÂU HỎI QUEN', back: 'Câu hỏi em dành cho anh, cho các con, cho em Luân, cho cả nhân viên. Rất ngắn, nhưng làm người được hỏi thấy mình quan trọng.' },
-      { ico: '🌸', title: 'Con gái của mẹ', small: 'KẾ THỪA', back: 'Em nhận từ mẹ cả sự nghiệp và cách sống. Và em đang truyền lại điều đó cho các con bằng chính cách em sống mỗi ngày.' }
+      { ico: '💬', title: '“Hôm nay thế nào?”', small: 'CÂU HỎI QUEN', back: 'Câu hỏi em dành cho anh, cho Tùng, cho Bách, cho em Luân, cho cả nhân viên. Rất ngắn, nhưng làm người được hỏi thấy mình quan trọng.' },
+      { ico: '🌸', title: 'Con gái của mẹ', small: 'KẾ THỪA', back: 'Em nhận từ mẹ cả sự nghiệp và cách sống. Và em đang truyền lại điều đó cho Tùng và Bách bằng chính cách em sống mỗi ngày.' }
     ],
     gratitude: 'Có những người rất giỏi ở ngoài kia,<br>và vẫn dịu dàng khi về nhà.',
     voices: [
-      { label: 'CHỒNG', name: 'Chồng của em', title: 'Gửi em', text: ['Em à, anh biết 20/10 của em thường là một ngày bận – đi chúc mừng các chị em, dự lễ, phát biểu. Nên anh muốn dành cho em một góc nhỏ thật yên, chỉ có nhà mình.', 'Cảm ơn em vì tất cả. Chúc em luôn khỏe, luôn vui, và luôn biết rằng dù em có đứng ở đâu, ở nhà vẫn có anh đợi.'], sign: 'Chồng của em' },
+      { label: 'CHỒNG', name: 'Sơn', title: 'Gửi em', text: ['Em à, anh biết 20/10 của em thường là một ngày bận – đi chúc mừng các chị em, dự lễ, phát biểu. Nên anh muốn dành cho em một góc nhỏ thật yên, chỉ có nhà mình.', 'Cảm ơn em vì tất cả. Chúc em luôn khỏe, luôn vui, và luôn biết rằng dù em có đứng ở đâu, ở nhà vẫn có anh đợi.'], sign: 'Sơn' },
       { label: 'EM TRAI', name: 'Luân', title: 'Gửi chị', text: ['Chị ơi, em lớn lên nhìn chị gánh dần phần việc của mẹ, rồi gánh thêm phần của hiệp hội. Em biết không dễ, và em phục chị.', 'Chúc chị 20/10 vui, khỏe, và bớt lo một chút. Có việc gì chị cứ gọi em, em và Bảo Anh luôn ở đây.'], sign: 'Em trai của chị' },
-      { label: 'CÁC CON', name: 'Các con', title: 'Gửi mẹ', text: ['Mẹ ơi, chúng con biết mẹ bận lắm, nhưng mẹ chưa bao giờ quên ngày nào chúng con thi, ngày nào chúng con cần mẹ. Chúng con tự hào về mẹ – cả ở công ty và ở nhà.', 'Chúc mẹ 20/10 thật vui. Chúng con hứa sẽ ngoan hơn, tự giác hơn để mẹ đỡ phải lo. Chúng con yêu mẹ!'], sign: 'Các con của mẹ' }
+      { label: 'CÁC CON', name: 'Tùng & Bách', title: 'Gửi mẹ', text: ['Mẹ ơi, Tùng và Bách biết mẹ bận lắm, nhưng mẹ chưa bao giờ quên ngày nào chúng con thi, ngày nào chúng con cần mẹ. Chúng con tự hào về mẹ – cả ở công ty và ở nhà.', 'Chúc mẹ 20/10 thật vui. Chúng con hứa sẽ ngoan hơn, tự giác hơn để mẹ đỡ phải lo. Chúng con yêu mẹ!'], sign: 'Tùng và Bách' }
     ],
     candle: 'Em đã dành rất nhiều sự chăm chút cho công ty, cho hiệp hội, cho gia đình. Với ngọn nến nhỏ này, anh và cả nhà muốn gửi một điều ước dành cho chính em.',
-    card: { text: 'Cảm ơn em vì đã là trái tim của nhà mình.<br>Chúc em luôn mạnh khỏe, bình an và nhiều niềm vui.', sign: 'CHỒNG · EM LUÂN · CÁC CON<br>GIA ĐÌNH DẠ LAN · 20/10/2026' },
+    card: { text: 'Cảm ơn em vì đã là trái tim của nhà mình.<br>Chúc em luôn mạnh khỏe, bình an và nhiều niềm vui.', sign: 'SƠN · LUÂN · TÙNG · BÁCH<br>GIA ĐÌNH DẠ LAN · 20/10/2026' },
     closing: 'Anh và những người đàn ông trong nhà hứa sẽ san sẻ nhiều hơn, lắng nghe nhiều hơn, và để em được là chính mình nhiều hơn. Đó là cách chúng tôi muốn trân trọng những điều em đã dành cho gia đình này.',
-    closingSignatures: ['Chồng của em', 'Em Luân', 'Các con'],
+    closingSignatures: ['Sơn', 'Em Luân', 'Tùng', 'Bách'],
     pronoun: 'em'
   },
 
@@ -116,45 +118,46 @@ const RECIPIENTS = {
     envelopeHonorific: 'Gửi mợ · em · vợ',
     cardHonorific: 'Gửi mợ · em',
     introScript: 'Người đến sau, mà làm nhà mình đông vui hơn.',
-    introLead: 'Hôm nay, Luân cùng anh rể và các cháu trai xin dành một khoảng lặng để nói lời cảm ơn. Vì sự dịu dàng em mang về nhà này, vì những bữa cơm sum họp có thêm tiếng cười, và vì em đã chọn trở thành một phần của gia đình Dạ Lan.',
+    introLead: 'Hôm nay, Luân cùng anh Sơn, Tùng và Bách xin dành một khoảng lặng để nói lời cảm ơn. Vì sự dịu dàng em mang về nhà này, vì những bữa cơm sum họp có thêm tiếng cười, và vì em đã chọn trở thành một phần của gia đình Dạ Lan.',
     introDetails: ['01 NGƯỜI MỢ DỊU DÀNG', '03 LỜI CHÚC TỪ CẢ NHÀ', '01 TẤM LÒNG TRÂN QUÝ'],
     introNote: 'Mợ ơi, em ơi,<br>có thư cho em…',
+    photo: { src: 'assets/photos/bao-anh-va-tho.jpg', alt: 'Bảo Anh bế bé Thỏ trong ngày Tết' },
     letter: {
       salutation: 'Gửi em – Bảo Anh, mợ của các cháu và vợ của Luân,',
       body: [
-        'Nhân ngày 20/10, những người đàn ông trong nhà – Luân, anh rể và các cháu trai – muốn viết đôi dòng gửi em. Chúng tôi vốn không giỏi nói những lời như thế này, nên xin được nói một lần cho thật.',
-        'Về với gia đình này, em về với một nhà có mẹ là Chủ tịch, có chị là Giám đốc, có một công ty mang tên Dạ Lan mà ai cũng bận. Không dễ để hòa vào một nhịp sống như vậy. Nhưng em đã làm điều đó rất nhẹ nhàng: bằng sự dịu dàng, bằng cách để tâm đến từng người, bằng cách khiến các cháu quý mợ ngay từ những ngày đầu.',
-        'Chúng tôi biết ơn em vì những điều rất đời thường: một bữa cơm sum họp có em thì vui hơn, một ngày lễ có em thì đủ hơn, và Luân – người em trai, người cậu của cả nhà – có em thì vững vàng hơn rất nhiều.',
+        'Nhân ngày 20/10, những người đàn ông trong nhà – Luân, anh Sơn và hai cháu Tùng, Bách – muốn viết đôi dòng gửi em. Chúng tôi vốn không giỏi nói những lời như thế này, nên xin được nói một lần cho thật.',
+        'Về với gia đình này, em về với một nhà có mẹ là Chủ tịch, có chị là Giám đốc, có một công ty mang tên Dạ Lan mà ai cũng bận. Không dễ để hòa vào một nhịp sống như vậy. Nhưng em đã làm điều đó rất nhẹ nhàng: bằng sự dịu dàng, bằng cách để tâm đến từng người, bằng cách khiến Tùng và Bách quý mợ ngay từ những ngày đầu.',
+        'Chúng tôi biết ơn em vì những điều rất đời thường: một bữa cơm sum họp có em thì vui hơn, một ngày lễ có em thì đủ hơn, và Luân – người em trai, người cậu của cả nhà – có em, có Bảo Linh và bé Thỏ, thì vững vàng hơn rất nhiều.',
         'Em không cần phải cố gắng để “xứng đáng” với gia đình này. Em đã là gia đình rồi.'
       ],
       wishes: 'Nhân ngày 20/10, cả nhà chúc em luôn mạnh khỏe, bình an và hạnh phúc bên Luân. Mong em luôn giữ được sự dịu dàng ấy, mong những dự định của hai vợ chồng đều thuận lợi, và mong mỗi lần về nhà, em đều thấy mình được yêu thương. Chúc em một ngày thật đẹp, cùng nhiều ngày đẹp như thế.',
       closing: 'Với tất cả sự trân quý,',
-      signers: ['Luân – chồng của em', 'Anh rể', 'Các cháu trai']
+      signers: ['Luân – chồng của em', 'Anh Sơn', 'Tùng và Bách']
     },
     milestones: [
-      { title: 'Ngày em về với nhà mình', body: 'Có những người bước vào một gia đình và làm cả nhà thấy như em vốn đã ở đó từ lâu. Em là người như vậy. Từ bữa cơm đầu tiên, các cháu đã quen gọi “mợ Bảo Anh” như một điều rất tự nhiên.', quote: 'Người đến sau, mà như đã ở đây từ lâu.', icon: '✧', book: 'Một ngày,<br>nhà mình đông thêm.', tab: ['Ngày đầu', 'Em về với nhà mình'] },
+      { title: 'Ngày em về với nhà mình', body: 'Có những người bước vào một gia đình và làm cả nhà thấy như em vốn đã ở đó từ lâu. Em là người như vậy. Từ bữa cơm đầu tiên, Tùng và Bách đã quen gọi “mợ Bảo Anh” như một điều rất tự nhiên.', quote: 'Người đến sau, mà như đã ở đây từ lâu.', icon: '✧', book: 'Một ngày,<br>nhà mình đông thêm.', tab: ['Ngày đầu', 'Em về với nhà mình'] },
       { title: 'Những bữa cơm sum họp', body: 'Nhà mình bận – mẹ bận, chị bận, công ty bận. Những bữa cơm đủ mặt vì thế càng quý. Em là người góp phần làm những bữa cơm ấy ấm hơn: thêm một món, thêm một câu chuyện, thêm một tiếng cười.', quote: 'Thêm một người, ấm thêm một bếp.', icon: '☕', book: 'Một bữa cơm,<br>nhiều ấm áp.', tab: ['Sum họp', 'Những bữa cơm đủ mặt'] },
-      { title: 'Người mợ của các cháu', body: 'Các cháu quý mợ không phải vì quà, mà vì mợ nhớ từng đứa thích gì, học gì, đang buồn hay đang vui. Với các cháu, mợ là người lớn mà chúng có thể kể chuyện được.', quote: 'Mợ là người các cháu tìm để kể chuyện.', icon: '❀', book: 'Người mợ<br>các cháu tin.', tab: ['Mợ Bảo Anh', 'Người các cháu tin'] },
-      { title: 'Chặng đường phía trước', body: 'Dù phía trước là gì – một tổ ấm nhỏ của hai vợ chồng, những dự định riêng, hay một phần việc ở Dạ Lan – em luôn có cả nhà này phía sau. Mong chặng tiếp theo nhiều niềm vui, và mong em luôn được là chính mình.', quote: 'Phía sau em là cả một gia đình.', icon: '↗', book: 'Phía trước,<br>có cả nhà cùng đi.', tab: ['Phía trước', 'Có cả nhà cùng đi'] }
+      { title: 'Người mợ của các cháu', body: 'Tùng và Bách quý mợ không phải vì quà, mà vì mợ nhớ từng đứa thích gì, học gì, đang buồn hay đang vui. Với các cháu, mợ là người lớn mà chúng có thể kể chuyện được. Và với Bảo Linh, với bé Thỏ, em là một người mẹ rất dịu dàng.', quote: 'Mợ là người các cháu tìm để kể chuyện.', icon: '❀', book: 'Người mợ<br>các cháu tin.', tab: ['Mợ Bảo Anh', 'Người các cháu tin'] },
+      { title: 'Chặng đường phía trước', body: 'Dù phía trước là gì – tổ ấm nhỏ của hai vợ chồng với Bảo Linh và bé Thỏ, những dự định riêng, hay một phần việc ở Dạ Lan – em luôn có cả nhà này phía sau. Mong chặng tiếp theo nhiều niềm vui, và mong em luôn được là chính mình.', quote: 'Phía sau em là cả một gia đình.', icon: '↗', book: 'Phía trước,<br>có cả nhà cùng đi.', tab: ['Phía trước', 'Có cả nhà cùng đi'] }
     ],
     cards: [
       { ico: '🌷', title: 'Sự dịu dàng', small: 'ĐIỀU ĐẦU TIÊN', back: 'Em làm mọi thứ nhẹ nhàng – từ lời nói đến cách để tâm đến người khác. Nhà mình vốn nhiều người mạnh mẽ, nên sự dịu dàng của em rất quý.' },
-      { ico: '🧸', title: 'Nhớ từng đứa cháu', small: 'NGƯỜI MỢ', back: 'Em nhớ cháu nào thích ăn gì, học lớp nào, đang mê điều gì. Các cháu quý mợ là vì thế.' },
+      { ico: '🧸', title: 'Nhớ từng đứa cháu', small: 'NGƯỜI MỢ', back: 'Em nhớ Tùng thích ăn gì, Bách học lớp nào, đứa nào đang mê điều gì. Hai cháu quý mợ là vì thế.' },
       { ico: '🏠', title: 'Hòa vào nhà rất tự nhiên', small: 'NGÀY ĐẦU', back: 'Về một gia đình ai cũng bận, cũng có vị trí ở công ty – không dễ. Em hòa vào tất cả rất khéo, không ai thấy em là “người mới”.' },
-      { ico: '🤝', title: 'Điểm tựa của Luân', small: 'VỢ CHỒNG', back: 'Có em, Luân vững vàng hơn, chu đáo hơn, và hay cười hơn. Cả nhà nhìn thấy điều đó.' },
+      { ico: '🤝', title: 'Điểm tựa của Luân', small: 'VỢ CHỒNG', back: 'Có em, có Bảo Linh và bé Thỏ, Luân vững vàng hơn, chu đáo hơn, và hay cười hơn. Cả nhà nhìn thấy điều đó.' },
       { ico: '🍵', title: 'Thêm một ấm trà', small: 'BUỔI TỐI', back: 'Những buổi tối cả nhà ngồi lại, em thường là người pha thêm ấm trà, kéo mọi người ở lại lâu hơn một chút.' },
       { ico: '🌿', title: 'Lặng lẽ mà có mặt', small: 'LUÔN Ở ĐÓ', back: 'Em không ồn ào, nhưng khi nhà có việc, em luôn có mặt. Đó là điều cả nhà biết ơn mà ít khi nói.' }
     ],
     gratitude: 'Có những người không cần ồn ào,<br>chỉ cần có mặt là nhà đã ấm hơn.',
     voices: [
       { label: 'CHỒNG', name: 'Luân', title: 'Gửi vợ', text: ['Vợ à, cảm ơn em đã chọn anh và chọn cả gia đình này. Anh biết nhà mình không phải lúc nào cũng dễ – ai cũng bận, ai cũng có việc. Nhưng em chưa bao giờ than, và luôn làm cho mọi thứ nhẹ hơn.', 'Chúc em 20/10 thật vui. Có anh ở đây, lúc nào cũng vậy.'], sign: 'Chồng của em' },
-      { label: 'ANH RỂ', name: 'Anh rể', title: 'Gửi em', text: ['Bảo Anh, từ ngày em về, nhà mình đông vui hơn thật. Anh thấy Luân trưởng thành hơn, các cháu có thêm một người để quý, và những bữa cơm đủ mặt có thêm một người để chờ.', 'Chúc em 20/10 vui, khỏe và hạnh phúc. Cảm ơn em đã là một phần của nhà mình.'], sign: 'Anh rể' },
-      { label: 'CÁC CHÁU', name: 'Các cháu trai', title: 'Gửi mợ', text: ['Mợ Bảo Anh ơi, chúng cháu chúc mợ 20/10 thật vui! Chúng cháu thích nhất là những lúc kể chuyện với mợ, vì mợ luôn nghe và nhớ hết.', 'Mợ nhớ giữ sức khỏe và về chơi với chúng cháu thật nhiều nhé. Chúng cháu quý mợ lắm!'], sign: 'Các cháu trai của mợ' }
+      { label: 'ANH RỂ', name: 'Anh Sơn', title: 'Gửi em', text: ['Bảo Anh, từ ngày em về, nhà mình đông vui hơn thật. Anh thấy Luân trưởng thành hơn, Tùng và Bách có thêm một người để quý, nhà có thêm Bảo Linh và bé Thỏ, và những bữa cơm đủ mặt có thêm người để chờ.', 'Chúc em 20/10 vui, khỏe và hạnh phúc. Cảm ơn em đã là một phần của nhà mình.'], sign: 'Anh Sơn' },
+      { label: 'CÁC CHÁU', name: 'Tùng & Bách', title: 'Gửi mợ', text: ['Mợ Bảo Anh ơi, Tùng và Bách chúc mợ 20/10 thật vui! Chúng cháu thích nhất là những lúc kể chuyện với mợ, vì mợ luôn nghe và nhớ hết.', 'Mợ nhớ giữ sức khỏe, và cho Bảo Linh với bé Thỏ sang chơi với chúng cháu thật nhiều nhé. Chúng cháu quý mợ lắm!'], sign: 'Tùng và Bách' }
     ],
-    candle: 'Em đã dành nhiều sự quan tâm cho Luân, cho các cháu, cho cả nhà. Với ngọn nến nhỏ này, cả nhà muốn gửi một điều ước dành cho chính em.',
-    card: { text: 'Cảm ơn em vì đã làm nhà mình ấm hơn.<br>Chúc em luôn mạnh khỏe, bình an và nhiều niềm vui.', sign: 'LUÂN · ANH RỂ · CÁC CHÁU TRAI<br>GIA ĐÌNH DẠ LAN · 20/10/2026' },
+    candle: 'Em đã dành nhiều sự quan tâm cho Luân, cho Bảo Linh và bé Thỏ, cho các cháu, cho cả nhà. Với ngọn nến nhỏ này, cả nhà muốn gửi một điều ước dành cho chính em.',
+    card: { text: 'Cảm ơn em vì đã làm nhà mình ấm hơn.<br>Chúc em luôn mạnh khỏe, bình an và nhiều niềm vui.', sign: 'LUÂN · SƠN · TÙNG · BÁCH<br>GIA ĐÌNH DẠ LAN · 20/10/2026' },
     closing: 'Cả nhà mong sẽ quan tâm đến em nhiều hơn, để em không bao giờ thấy mình là người đến sau. Đó là cách chúng tôi muốn trân trọng những điều em đã mang đến cho gia đình này.',
-    closingSignatures: ['Luân', 'Anh rể', 'Các cháu trai'],
+    closingSignatures: ['Luân', 'Anh Sơn', 'Tùng', 'Bách'],
     pronoun: 'em'
   }
 };
@@ -239,6 +242,8 @@ function openRecipient(key) {
   $('#intro-details').innerHTML = r.introDetails.map(d => `<span>${d}</span>`).join('');
   $('#intro-note').innerHTML = `${r.introNote} <span>↙</span>`;
   $('#intro-flower').innerHTML = bouquetSvg([0, 2, 3, 5, 4, 1], 'wine', 6);
+  $('#intro-photo').src = r.photo.src; $('#intro-photo').alt = r.photo.alt;
+  renderAlbum();
   $('#envelope-honorific').textContent = r.envelopeHonorific; $('#envelope-name').textContent = r.name;
   $('#letter-salutation').textContent = r.letter.salutation;
   $('#letter-body').innerHTML = r.letter.body.map(p => `<p>${p}</p>`).join('');
@@ -404,6 +409,36 @@ $('#share-gift').onclick = async () => {
   try { await navigator.clipboard.writeText(url); toast('Đã sao chép đường link ✓'); } catch { toast(url); }
 };
 
+/* ---------- Album gia đình ---------- */
+const PHOTOS = [
+  { src: 'assets/photos/ca-nha-ao-dai.jpg', tag: 'CẢ NHÀ', cap: 'Cả nhà trong tà áo dài – bà Loan ở giữa, xung quanh là con cháu đủ mặt.' },
+  { src: 'assets/photos/ba-the-he.jpg', tag: 'BA THẾ HỆ', cap: 'Bà Loan, mẹ Liên và Bách – ba thế hệ trong một khung hình.' },
+  { src: 'assets/photos/tet-sum-hop.jpg', tag: 'TẾT SUM HỌP', cap: 'Ngày đầu năm, cả nhà quây quần: có cả bé Thỏ trong lòng mợ Bảo Anh.' },
+  { src: 'assets/photos/ba-tung-bach.jpg', tag: 'BÀ NGOẠI', cap: 'Bà Loan cùng Tùng và Bách – áo dài đỏ, nụ cười cũng đỏ như Tết.' },
+  { src: 'assets/photos/ba-va-cac-chau.jpg', tag: 'NGÀY XƯA', cap: 'Bà ngoại và các cháu ngày còn bé xíu – ảnh càng cũ càng quý.' },
+  { src: 'assets/photos/ba-va-hai-chau-san-bay.jpg', tag: 'ĐI CHƠI', cap: 'Bà ngoại đội nón lá dẫn Tùng và Bách đi chơi – hai cháu ngồi trên vali, bà đứng sau cười.' },
+  { src: 'assets/photos/hoi-an.jpg', tag: 'HỘI AN', cap: 'Chuyến đi Hội An của cả nhà, dưới giàn hoa giấy hồng.' },
+  { src: 'assets/photos/hai-bo-con.jpg', tag: 'HAI BỐ CON', cap: 'Hai bố con, một bữa tối – những khoảnh khắc nhỏ làm nên gia đình.' },
+  { src: 'assets/photos/bua-lau.jpg', tag: 'BỮA CƠM NHÀ', cap: 'Một bữa lẩu của cả nhà – mẹ pha nước chấm, con ngồi chờ.' }
+];
+let lbIndex = 0;
+function renderAlbum() {
+  const g = $('#photo-grid'); if (g.dataset.ready) return; g.dataset.ready = '1';
+  g.innerHTML = PHOTOS.map((p, i) => `<figure data-photo="${i}"><img src="${p.src}" alt="${p.cap}" loading="lazy"><figcaption><small>${p.tag}</small>${p.cap}</figcaption></figure>`).join('');
+  $$('[data-photo]').forEach(f => f.onclick = () => openLightbox(Number(f.dataset.photo)));
+}
+function openLightbox(i) {
+  lbIndex = (i + PHOTOS.length) % PHOTOS.length; const p = PHOTOS[lbIndex];
+  $('#lightbox-img').src = p.src; $('#lightbox-img').alt = p.cap; $('#lightbox-cap').textContent = p.cap;
+  $('#lightbox').hidden = false; document.body.style.overflow = 'hidden'; markGift('album');
+}
+function closeLightbox() { $('#lightbox').hidden = true; document.body.style.overflow = ''; }
+$('#lightbox-close').onclick = closeLightbox;
+$('#lightbox-prev').onclick = (e) => { e.stopPropagation(); openLightbox(lbIndex - 1); };
+$('#lightbox-next').onclick = (e) => { e.stopPropagation(); openLightbox(lbIndex + 1); };
+$('#lightbox').onclick = (e) => { if (e.target === e.currentTarget) closeLightbox(); };
+addEventListener('keydown', e => { if ($('#lightbox').hidden) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') openLightbox(lbIndex - 1); if (e.key === 'ArrowRight') openLightbox(lbIndex + 1); });
+
 /* ---------- Nhạc nền (Web Audio, không cần file) ---------- */
 let audio = null;
 function makeMusic() {
@@ -467,7 +502,7 @@ function observeReveal() {
 observeReveal();
 
 /* ---------- Khởi động ---------- */
-$('#main-bouquet').innerHTML = bouquetSvg([0, 1, 2, 3, 4, 5, 0, 3], 'wine', 8);
+$('#main-bouquet').innerHTML = bouquetSvg([0, 3, 2, 5, 4], 'wine', 5);
 (function init() {
   const q = new URLSearchParams(location.search).get('co'); if (!q) return;
   const k = (q || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd');
