@@ -557,15 +557,36 @@ function makeMusic() {
       master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2.5);
       scheduleBar();
     },
+    running() { return ctx.state === 'running'; },
     stop() { clearTimeout(timer); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.5); }
   };
 }
-$('#sound').onclick = () => {
-  const b = $('#sound'); const on = b.getAttribute('aria-pressed') === 'true';
-  if (!audio) { try { audio = makeMusic(); } catch { return toast('Trình duyệt không hỗ trợ nhạc nền.'); } }
-  if (on) { audio.stop(); b.setAttribute('aria-pressed', 'false'); b.querySelector('span').textContent = 'Nhạc: tắt'; }
-  else { audio.start(); b.setAttribute('aria-pressed', 'true'); b.querySelector('span').textContent = 'Nhạc: bật'; }
-};
+// Nút nhạc + mặc định nhạc luôn mở
+const soundBtn = $('#sound'); let musicOn = false, musicWanted = true;
+function setSoundUI(on) {
+  soundBtn.setAttribute('aria-pressed', String(on));
+  soundBtn.querySelector('span').textContent = on ? 'Nhạc: bật' : 'Nhạc: tắt';
+  soundBtn.setAttribute('aria-label', on ? 'Tắt nhạc nền' : 'Bật nhạc nền bolero trữ tình');
+}
+function playMusic() {
+  if (!audio) { try { audio = makeMusic(); } catch { toast('Trình duyệt không hỗ trợ nhạc nền.'); return false; } }
+  audio.start(); musicOn = true; setSoundUI(true); return true;
+}
+function pauseMusic() { if (audio) audio.stop(); musicOn = false; setSoundUI(false); }
+soundBtn.onclick = () => { if (musicOn) { pauseMusic(); musicWanted = false; } else { musicWanted = true; playMusic(); } };
+// Trình duyệt chỉ cho phát âm thanh sau khi người dùng chạm vào trang: thử phát ngay,
+// nếu bị chặn thì phát ở lần chạm / bấm phím đầu tiên (kể cả lúc bấm chọn người nhận).
+setSoundUI(true); // giao diện báo "bật" ngay từ đầu; musicOn chỉ đúng khi nhạc thực sự chạy
+const autoplayEvents = ['pointerdown', 'touchend', 'keydown', 'click'];
+function autoplayOnGesture() {
+  if (musicWanted && !musicOn) playMusic();
+  if (musicOn || !musicWanted) autoplayEvents.forEach(ev => removeEventListener(ev, autoplayOnGesture, true));
+}
+autoplayEvents.forEach(ev => addEventListener(ev, autoplayOnGesture, { capture: true, passive: true }));
+(() => {
+  try { audio = makeMusic(); } catch { setSoundUI(false); return; }
+  if (audio.running()) playMusic();
+})();
 $('#read-size').onclick = () => { const on = document.body.classList.toggle('big'); $('#read-size').setAttribute('aria-pressed', on); };
 
 /* ---------- Cánh hoa rơi ---------- */
