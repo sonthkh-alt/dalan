@@ -551,42 +551,62 @@ function makeMusic() {
     timer = setTimeout(scheduleBar, 150);
   };
   return {
-    start() {
-      ctx.resume().catch(() => {});
-      bar = 0; next = ctx.currentTime + .1; clearTimeout(timer);
-      master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2.5);
-      scheduleBar();
+    // Trả về true khi âm thanh THẬT SỰ đang chạy (trình duyệt đã cho phép). Gọi nhiều lần cũng chỉ lập lịch một lần.
+    async start() {
+      try { await ctx.resume(); } catch (e) { /* chưa có thao tác người dùng, thử lại sau */ }
+      if (!timer) {
+        bar = 0; next = ctx.currentTime + .1;
+        master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2.5);
+        scheduleBar();
+      }
+      return ctx.state === 'running';
     },
     running() { return ctx.state === 'running'; },
-    stop() { clearTimeout(timer); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.5); }
+    resume() { return ctx.resume().catch(() => {}); },
+    stop() { clearTimeout(timer); timer = null; master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.5); }
   };
 }
-// Nút nhạc + mặc định nhạc luôn mở
-const soundBtn = $('#sound'); let musicOn = false, musicWanted = true;
+// ---------- Nút nhạc + mặc định nhạc luôn mở ----------
+// Trình duyệt (nhất là trên điện thoại) chỉ cho phát âm thanh sau một thao tác của người dùng
+// (nhấc tay sau khi chạm, bấm, gõ phím). Vì vậy: giao diện báo "Nhạc: bật" ngay từ đầu (ý muốn của trang),
+// còn nhạc chỉ được coi là đang chạy khi AudioContext thật sự ở trạng thái running.
+const soundBtn = $('#sound'); let musicOn = false, musicWanted = true, musicBusy = false;
 function setSoundUI(on) {
   soundBtn.setAttribute('aria-pressed', String(on));
   soundBtn.querySelector('span').textContent = on ? 'Nhạc: bật' : 'Nhạc: tắt';
-  soundBtn.setAttribute('aria-label', on ? 'Tắt nhạc nền' : 'Bật nhạc nền bolero trữ tình');
+  soundBtn.setAttribute('aria-label', on ? 'Tắt nhạc nền' : 'Bật nhạc nền');
 }
-function playMusic() {
-  if (!audio) { try { audio = makeMusic(); } catch { toast('Trình duyệt không hỗ trợ nhạc nền.'); return false; } }
-  audio.start(); musicOn = true; setSoundUI(true); return true;
+async function playMusic() {
+  if (musicBusy) return musicOn;
+  if (!audio) { try { audio = makeMusic(); } catch { toast('Trình duyệt không hỗ trợ nhạc nền.'); setSoundUI(false); musicWanted = false; return false; } }
+  musicBusy = true;
+  try { musicOn = await audio.start(); } finally { musicBusy = false; }
+  setSoundUI(musicWanted);
+  return musicOn;
 }
 function pauseMusic() { if (audio) audio.stop(); musicOn = false; setSoundUI(false); }
-soundBtn.onclick = () => { if (musicOn) { pauseMusic(); musicWanted = false; } else { musicWanted = true; playMusic(); } };
-// Trình duyệt chỉ cho phát âm thanh sau khi người dùng chạm vào trang: thử phát ngay,
-// nếu bị chặn thì phát ở lần chạm / bấm phím đầu tiên (kể cả lúc bấm chọn người nhận).
-setSoundUI(true); // giao diện báo "bật" ngay từ đầu; musicOn chỉ đúng khi nhạc thực sự chạy
-const autoplayEvents = ['pointerdown', 'touchend', 'keydown', 'click'];
-function autoplayOnGesture() {
-  if (musicWanted && !musicOn) playMusic();
-  if (musicOn || !musicWanted) autoplayEvents.forEach(ev => removeEventListener(ev, autoplayOnGesture, true));
+soundBtn.onclick = async (e) => {
+  e.stopPropagation();
+  if (musicOn) { musicWanted = false; pauseMusic(); return; }
+  musicWanted = true;
+  const ok = await playMusic();
+  if (!ok) toast('Nhạc chưa phát được – chạm thêm một lần nữa vào trang nhé.');
+};
+// Các sự kiện mà trình duyệt chấp nhận là "thao tác người dùng" để mở âm thanh
+const autoplayEvents = ['pointerup', 'touchend', 'mousedown', 'keydown', 'click'];
+function autoplayOnGesture(e) {
+  if (e.target && e.target.closest && e.target.closest('#sound')) return; // nút nhạc tự xử lý
+  if (!musicWanted || musicOn) { detachAutoplay(); return; }
+  playMusic().then(ok => { if (ok) detachAutoplay(); });
 }
-autoplayEvents.forEach(ev => addEventListener(ev, autoplayOnGesture, { capture: true, passive: true }));
-(() => {
-  try { audio = makeMusic(); } catch { setSoundUI(false); return; }
-  if (audio.running()) playMusic();
-})();
+function detachAutoplay() { autoplayEvents.forEach(ev => removeEventListener(ev, autoplayOnGesture, true)); }
+function attachAutoplay() { detachAutoplay(); autoplayEvents.forEach(ev => addEventListener(ev, autoplayOnGesture, { capture: true, passive: true })); }
+setSoundUI(true);
+attachAutoplay();
+// Thử phát ngay khi mở trang (có hiệu lực nếu trình duyệt đã tin tưởng trang này hoặc người dùng vừa điều hướng tới)
+(async () => { try { audio = makeMusic(); } catch { setSoundUI(false); musicWanted = false; return; } await playMusic(); })();
+// Khi quay lại tab / mở lại màn hình điện thoại, tiếp tục phát nếu nhạc đang bật
+document.addEventListener('visibilitychange', () => { if (!document.hidden && musicWanted && audio) { audio.resume().then(() => { if (!musicOn && audio.running()) playMusic(); }); } });
 $('#read-size').onclick = () => { const on = document.body.classList.toggle('big'); $('#read-size').setAttribute('aria-pressed', on); };
 
 /* ---------- Cánh hoa rơi ---------- */
