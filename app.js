@@ -420,9 +420,12 @@ const PHOTOS = [
   { src: 'assets/photos/ba-the-he.jpg', tag: 'BA THẾ HỆ', cap: 'Bà Loan, mợ Bảo Anh và Bách – ba thế hệ trong một khung hình.' },
   { src: 'assets/photos/tet-sum-hop.jpg', tag: 'TẾT SUM HỌP', cap: 'Ngày đầu năm, cả nhà quây quần: bé Thỏ ngồi gọn trong lòng Liên, Bách và Tùng áo dài vàng bên cạnh.' },
   { src: 'assets/photos/lien-va-tho.jpg', tag: 'TẾT', cap: 'Liên bế cháu Thỏ ngày Tết, Bách ngồi sát bên, bà ngoại cười phía sau.' },
+  { src: 'assets/photos/tho-tren-xe.jpg', tag: 'BÉ THỎ', cap: 'Bé Thỏ buộc tóc hai bên, giơ ngón tay cái trên xe – nhỏ xíu mà đã biết “ok” rồi.' },
+  { src: 'assets/photos/sinh-nhat-ba-va-cac-chau.jpg', tag: 'BÊN BÁNH KEM', cap: 'Bà ngoại ôm bé Thỏ bên chiếc bánh kem, Tùng, Bách và Bảo Linh vây quanh – một tối rất đông, rất vui.' },
   { src: 'assets/photos/ba-tung-bach.jpg', tag: 'BÀ NGOẠI', cap: 'Bà Loan cùng Tùng và Bách – áo dài đỏ, nụ cười cũng đỏ như Tết.' },
   { src: 'assets/photos/ba-va-cac-chau.jpg', tag: 'NGÀY XƯA', cap: 'Bà ngoại và các cháu ngày còn bé xíu – ảnh càng cũ càng quý.' },
   { src: 'assets/photos/ba-va-hai-chau-san-bay.jpg', tag: 'ĐI CHƠI', cap: 'Bà ngoại đội nón lá dẫn Tùng và Bách đi chơi – hai cháu ngồi trên vali, bà đứng sau cười.' },
+  { src: 'assets/photos/ba-di-choi.jpg', tag: 'BÀ ĐI CHƠI', cap: 'Bà Loan đi chơi xa – kính râm, khăn buộc tóc và chiếc nón cói vẽ hoa, trẻ trung như thuở nào.' },
   { src: 'assets/photos/hoi-an.jpg', tag: 'HỘI AN', cap: 'Chuyến đi Hội An của cả nhà, dưới giàn hoa giấy hồng.' },
   { src: 'assets/photos/hai-bo-con.jpg', tag: 'HAI BỐ CON', cap: 'Hai bố con, một bữa tối – những khoảnh khắc nhỏ làm nên gia đình.' },
   { src: 'assets/photos/bua-lau.jpg', tag: 'BỮA CƠM NHÀ', cap: 'Một bữa lẩu của cả nhà – mẹ pha nước chấm, con ngồi chờ.' }
@@ -446,21 +449,26 @@ $('#lightbox').onclick = (e) => { if (e.target === e.currentTarget) closeLightbo
 addEventListener('keydown', e => { if ($('#lightbox').hidden) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') openLightbox(lbIndex - 1); if (e.key === 'ArrowRight') openLightbox(lbIndex + 1); });
 
 /* ---------- Nhạc nền: bolero trữ tình (hướng nhạc Lệ Quyên) – Web Audio, không cần file ----------
-   Giai điệu tự soạn, giọng La thứ, nhịp 4/4 chậm ~66 BPM, guitar đệm điệu bolero, gõ nhẹ, tiếng dẫn có rung và luyến. */
+   Giai điệu tự soạn, giọng La thứ, nhịp 4/4 chậm ~60 BPM: guitar rải điệu bolero, lớp dây nền êm,
+   tiếng dẫn vào mềm, ngân dài, rung và luyến như cách hát bolero, vang phòng và tiếng vọng nhẹ. */
 let audio = null;
 function makeMusic() {
   const ctx = new (window.AudioContext || window.webkitAudioContext)();
   const master = ctx.createGain(); master.gain.value = .0001; master.connect(ctx.destination);
   // Vang phòng tổng hợp (nhiễu trắng tắt dần) để tiếng ấm và sâu hơn
   const verb = ctx.createConvolver();
-  { const len = Math.floor(ctx.sampleRate * 2.4), buf = ctx.createBuffer(2, len, ctx.sampleRate);
-    for (let c = 0; c < 2; c++) { const d = buf.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.4); }
+  { const len = Math.floor(ctx.sampleRate * 3.2), buf = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let c = 0; c < 2; c++) { const d = buf.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.6); }
     verb.buffer = buf; }
-  const verbGain = ctx.createGain(); verbGain.gain.value = .3; verb.connect(verbGain); verbGain.connect(master);
+  const verbGain = ctx.createGain(); verbGain.gain.value = .4; verb.connect(verbGain); verbGain.connect(master);
   const dry = ctx.createGain(); dry.connect(master); dry.connect(verb);
   const noise = (() => { const b = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return b; })();
 
-  const BPM = 66, BEAT = 60 / BPM, BAR = BEAT * 4;
+  const BPM = 60, BEAT = 60 / BPM, BAR = BEAT * 4;
+  // Tiếng vọng nhẹ dành riêng cho tiếng dẫn (3/4 phách) cho giai điệu bay hơn
+  const echo = ctx.createDelay(2); echo.delayTime.value = BEAT * .75;
+  const echoFb = ctx.createGain(); echoFb.gain.value = .22; const echoWet = ctx.createGain(); echoWet.gain.value = .2;
+  echo.connect(echoFb); echoFb.connect(echo); echo.connect(echoWet); echoWet.connect(dry);
   const hz = m => 440 * Math.pow(2, (m - 69) / 12);
   // Hợp âm (số MIDI): bass chính, bass phụ (bậc 5) và ba nốt rải
   const CHORDS = {
@@ -473,61 +481,70 @@ function makeMusic() {
   // Giai điệu: mỗi ô nhịp là danh sách [phách bắt đầu, độ dài (phách), nốt MIDI, luyến từ dưới lên (nửa cung)]
   const MELODY = [
     [[0, 1.5, 69, 2], [1.5, .5, 71], [2, 2, 72, 1]],
-    [[0, 1, 74], [1, 1, 72], [2, 2, 69, 2]],
-    [[0, 1.5, 68, 1], [1.5, .5, 71], [2, 1, 69], [3, 1, 68]],
-    [[0, 3, 64, 2]],
-    [[0, 1, 64], [1, 1, 69], [2, 1, 71], [3, 1, 72]],
-    [[0, 2, 74, 2], [2, 1, 77], [3, 1, 76]],
+    [[0, 1, 74, 1], [1, 1, 72], [2, 2, 69, 2]],
+    [[0, 1.5, 68, 1], [1.5, .5, 71], [2, 1, 69, 1], [3, 1, 68]],
+    [[0, 3.5, 64, 2]],
+    [[0, 1, 64], [1, 1, 69, 2], [2, 1, 71], [3, 1, 72, 1]],
+    [[0, 2, 74, 2], [2, 1, 77, 1], [3, 1, 76]],
     [[0, 1.5, 74, 1], [1.5, .5, 72], [2, 2, 71, 1]],
-    [[0, 3, 72, 2]],
-    [[0, 1, 72], [1, 1, 74], [2, 2, 76, 2]],
+    [[0, 3.5, 72, 2]],
+    [[0, 1, 72], [1, 1, 74, 1], [2, 2, 76, 2]],
     [[0, 1.5, 77, 1], [1.5, .5, 76], [2, 2, 74, 2]],
-    [[0, 1, 72], [1, 1, 71], [2, 1, 68], [3, 1, 71]],
-    [[0, 3, 69, 2]],
-    [[0, 1, 74], [1, 1, 72], [2, 1, 71], [3, 1, 69]],
-    [[0, 2, 72, 1], [2, 1, 71], [3, 1, 69]],
+    [[0, 1, 72, 1], [1, 1, 71], [2, 1, 68, 1], [3, 1, 71]],
+    [[0, 3.5, 69, 2]],
+    [[0, 1, 74, 1], [1, 1, 72], [2, 1, 71], [3, 1, 69, 1]],
+    [[0, 2, 72, 1], [2, 1, 71], [3, 1, 69, 1]],
     [[0, 1.5, 68, 1], [1.5, .5, 71], [2, 2, 64, 2]],
-    [[0, 3.5, 69, 2]]
+    [[0, 4, 69, 2]]
   ];
 
   // Guitar nylon: triangle + sine quãng tám, lọc thông thấp hạ dần như dây đàn tắt
-  const pluck = (m, t, vol = .2, dur = 1.4) => {
+  const pluck = (m, t, vol = .18, dur = 1.8) => {
     const f = hz(m), o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), g2 = ctx.createGain(), fl = ctx.createBiquadFilter();
-    o.type = 'triangle'; o2.type = 'sine'; o.frequency.value = f; o2.frequency.value = f * 2; o2.detune.value = 3; g2.gain.value = .18;
-    fl.type = 'lowpass'; fl.frequency.setValueAtTime(Math.min(4200, f * 6), t); fl.frequency.exponentialRampToValueAtTime(Math.max(300, f * 1.5), t + dur);
-    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .008); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    o.type = 'triangle'; o2.type = 'sine'; o.frequency.value = f; o2.frequency.value = f * 2; o2.detune.value = 3; g2.gain.value = .15;
+    fl.type = 'lowpass'; fl.frequency.setValueAtTime(Math.min(3600, f * 5), t); fl.frequency.exponentialRampToValueAtTime(Math.max(260, f * 1.4), t + dur);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
     o.connect(fl); o2.connect(g2); g2.connect(fl); fl.connect(g); g.connect(dry);
     o.start(t); o2.start(t); o.stop(t + dur + .05); o2.stop(t + dur + .05);
   };
-  // Tiếng dẫn giai điệu: vào mềm, rung (vibrato) sau 0,4 giây, luyến từ nốt dưới lên như cách hát bolero
-  const lead = (m, t, beats, slide = 0, vol = .17) => {
+  // Lớp dây nền: ba nốt hợp âm ngân suốt ô nhịp, vào ra rất chậm
+  const pad = (tones, t) => tones.forEach((m, i) => {
+    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), fl = ctx.createBiquadFilter();
+    o.type = 'sine'; o2.type = 'triangle'; o.frequency.value = hz(m - 12); o2.frequency.value = hz(m - 12); o2.detune.value = i % 2 ? 6 : -6;
+    fl.type = 'lowpass'; fl.frequency.value = 900;
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.028, t + 1.2); g.gain.setValueAtTime(.028, t + BAR - .6); g.gain.exponentialRampToValueAtTime(.0001, t + BAR + .9);
+    o.connect(fl); o2.connect(fl); fl.connect(g); g.connect(dry); o.start(t); o2.start(t); o.stop(t + BAR + 1); o2.stop(t + BAR + 1);
+  });
+  // Tiếng dẫn giai điệu: vào mềm, ngân dài, rung sau nửa giây, luyến từ nốt dưới lên như cách hát bolero
+  const lead = (m, t, beats, slide = 0, vol = .16) => {
     const f = hz(m), f0 = slide ? f * Math.pow(2, -slide / 12) : f;
     const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), g2 = ctx.createGain(), fl = ctx.createBiquadFilter(), lfo = ctx.createOscillator(), lg = ctx.createGain();
-    o.type = 'triangle'; o2.type = 'sine'; o2.detune.value = 5; g2.gain.value = .7;
-    [o, o2].forEach(x => { x.frequency.setValueAtTime(f0, t); x.frequency.exponentialRampToValueAtTime(f, t + .12); });
-    lfo.type = 'sine'; lfo.frequency.value = 5.3; lg.gain.setValueAtTime(0, t); lg.gain.linearRampToValueAtTime(9, t + .45);
+    o.type = 'triangle'; o2.type = 'sine'; o2.detune.value = 4; g2.gain.value = 1.1;
+    [o, o2].forEach(x => { x.frequency.setValueAtTime(f0, t); x.frequency.exponentialRampToValueAtTime(f, t + .16); });
+    lfo.type = 'sine'; lfo.frequency.value = 5; lg.gain.setValueAtTime(0, t); lg.gain.linearRampToValueAtTime(8, t + .55);
     lfo.connect(lg); lg.connect(o.detune); lg.connect(o2.detune);
-    fl.type = 'lowpass'; fl.frequency.value = 1900; fl.Q.value = .6;
-    const end = t + beats * BEAT - .06, hold = Math.max(t + .1, end - .25);
-    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .09); g.gain.setValueAtTime(vol, hold); g.gain.exponentialRampToValueAtTime(.0001, end + .22);
-    o.connect(fl); o2.connect(g2); g2.connect(fl); fl.connect(g); g.connect(dry);
-    [o, o2, lfo].forEach(x => { x.start(t); x.stop(end + .3); });
+    fl.type = 'lowpass'; fl.frequency.value = 1500; fl.Q.value = .5;
+    const end = t + beats * BEAT + .05, hold = Math.max(t + .2, end - .35);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .18); g.gain.setValueAtTime(vol, hold); g.gain.exponentialRampToValueAtTime(.0001, end + .45);
+    o.connect(fl); o2.connect(g2); g2.connect(fl); fl.connect(g); g.connect(dry); g.connect(echo);
+    [o, o2, lfo].forEach(x => { x.start(t); x.stop(end + .5); });
   };
-  // Gõ nhẹ: lúc lắc (maracas) và bongo
-  const shaker = (t, vol = .03) => { const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain(); s.buffer = noise; f.type = 'bandpass'; f.frequency.value = 6500; f.Q.value = 1.2; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + .09); s.connect(f); f.connect(g); g.connect(master); s.start(t); s.stop(t + .12); };
-  const bongo = (t, hi = false, vol = .14) => { const o = ctx.createOscillator(), g = ctx.createGain(), f = hi ? 230 : 150; o.type = 'sine'; o.frequency.setValueAtTime(f * 1.6, t); o.frequency.exponentialRampToValueAtTime(f, t + .04); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .006); g.gain.exponentialRampToValueAtTime(.0001, t + .22); o.connect(g); g.connect(dry); o.start(t); o.stop(t + .25); };
+  // Gõ rất nhẹ: lúc lắc (maracas) và bongo
+  const shaker = (t, vol = .014) => { const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain(); s.buffer = noise; f.type = 'bandpass'; f.frequency.value = 6000; f.Q.value = 1.2; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + .1); s.connect(f); f.connect(g); g.connect(master); s.start(t); s.stop(t + .13); };
+  const bongo = (t, hi = false, vol = .07) => { const o = ctx.createOscillator(), g = ctx.createGain(), f = hi ? 220 : 145; o.type = 'sine'; o.frequency.setValueAtTime(f * 1.5, t); o.frequency.exponentialRampToValueAtTime(f, t + .05); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .008); g.gain.exponentialRampToValueAtTime(.0001, t + .25); o.connect(g); g.connect(dry); o.start(t); o.stop(t + .3); };
 
   let bar = 0, next = 0, timer = null;
   const scheduleBar = () => {
-    while (next < ctx.currentTime + .4) {
+    while (next < ctx.currentTime + .5) {
       const t = next, idx = bar < 2 ? 0 : (bar - 2) % 16, ch = CHORDS[PROG[idx]];
+      pad(ch.tones, t);
       // Đệm điệu bolero: bass – rải ba nốt (chùm ba) – bass phụ – hai nốt rải
-      pluck(ch.bass, t, .26, 1.8);
-      ch.tones.forEach((n, i) => pluck(n, t + BEAT * (1 + i / 3), .12, 1.1));
-      pluck(ch.alt, t + BEAT * 2, .22, 1.6);
-      pluck(ch.tones[1], t + BEAT * 3, .12, 1); pluck(ch.tones[2], t + BEAT * 3.5, .11, 1);
-      for (let i = 0; i < 8; i++) shaker(t + BEAT * i / 2, i % 2 ? .018 : .03);
-      bongo(t); bongo(t + BEAT * 2, true); bongo(t + BEAT * 3.5, true, .07);
+      pluck(ch.bass, t, .22, 2.4);
+      ch.tones.forEach((n, i) => pluck(n, t + BEAT * (1 + i / 3), .1, 1.5));
+      pluck(ch.alt, t + BEAT * 2, .18, 2.2);
+      pluck(ch.tones[1], t + BEAT * 3, .1, 1.4); pluck(ch.tones[2], t + BEAT * 3.5, .09, 1.4);
+      for (let i = 0; i < 8; i++) shaker(t + BEAT * i / 2, i % 2 ? .009 : .014);
+      bongo(t); bongo(t + BEAT * 2, true);
       if (bar >= 2) MELODY[idx].forEach(([b, d, m, s]) => lead(m, t + BEAT * b, d, s));
       bar++; next += BAR;
     }
@@ -537,10 +554,10 @@ function makeMusic() {
     start() {
       ctx.resume().catch(() => {});
       bar = 0; next = ctx.currentTime + .1; clearTimeout(timer);
-      master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2);
+      master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2.5);
       scheduleBar();
     },
-    stop() { clearTimeout(timer); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.2); }
+    stop() { clearTimeout(timer); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.5); }
   };
 }
 $('#sound').onclick = () => {

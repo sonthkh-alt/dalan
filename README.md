@@ -28,5 +28,5 @@ qua workflow `.github/workflows/pages.yml` mỗi khi push lên nhánh `main`.
 - Ảnh trong khung tròn (trang chào và trang mở đầu) được căn chính giữa bằng `object-position`. Với ảnh dọc quá dài
   (bị cắt bớt trên/dưới), đặt điểm lấy nét riêng qua trường `focus` của `photo` trong `RECIPIENTS`
   (ví dụ `'50% 20%'` để giữ khuôn mặt ở phía trên ảnh).
-- Nhạc nền là bản bolero trữ tình tự soạn theo hướng nhạc Lệ Quyên (giọng La thứ, ~66 BPM, guitar đệm điệu bolero,
+- Nhạc nền là bản bolero trữ tình tự soạn theo hướng nhạc Lệ Quyên (giọng La thứ, ~60 BPM, guitar đệm điệu bolero,
   tiếng dẫn có rung và luyến), tạo bằng Web Audio trong `makeMusic()` ở `app.js`, không cần file nhạc.
