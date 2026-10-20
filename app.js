@@ -19,7 +19,7 @@ const RECIPIENTS = {
     introLead: 'Hôm nay, chúng con – Luân, Sơn, Tùng và Bách – xin dành một khoảng lặng để nói lời cảm ơn. Vì một đời tảo tần, vì bàn tay đã gây dựng Dạ Lan từ hai cơ sở nhỏ và 52 người lao động, và vì mâm cơm gia đình chưa một ngày nào thiếu hơi ấm.',
     introDetails: ['TỪ NĂM 2000 ĐẾN HÔM NAY', '03 LỜI CHÚC TỪ CON CHÁU', '01 TẤM LÒNG BIẾT ƠN'],
     introNote: 'Mẹ ơi, bà ơi,<br>có thư cho mẹ…',
-    photo: { src: 'assets/photos/ba-tung-bach.jpg', alt: 'Bà Loan cùng hai cháu Tùng và Bách trong áo dài đỏ' },
+    photo: { src: 'assets/photos/ba-tung-bach.jpg', alt: 'Bà Loan cùng hai cháu Tùng và Bách trong áo dài đỏ', focus: '50% 50%' },
     letter: {
       salutation: 'Kính gửi mẹ, kính gửi bà – Trịnh Thị Loan,',
       body: [
@@ -70,7 +70,7 @@ const RECIPIENTS = {
     introLead: 'Hôm nay, anh cùng em Luân, Tùng và Bách xin dành một khoảng lặng để nói lời cảm ơn. Vì những ngày em gánh việc của một Giám đốc, một Chủ tịch hiệp hội với hơn 200 doanh nghiệp hội viên, và vẫn về nhà kịp bữa cơm tối. Vì em làm được tất cả những điều ấy mà hiếm khi kể là mình mệt.',
     introDetails: ['GIÁM ĐỐC CÔNG TY CP DẠ LAN', 'CHỦ TỊCH HIỆP HỘI DOANH NHÂN NỮ THANH HÓA', '01 TRÁI TIM CỦA CẢ NHÀ'],
     introNote: 'Em ơi, mẹ ơi,<br>có thư cho em…',
-    photo: { src: 'assets/photos/lien-va-bach.jpg', alt: 'Liên trong tà áo dài vàng, bé Bách ôm mẹ' },
+    photo: { src: 'assets/photos/lien-va-bach.jpg', alt: 'Liên trong tà áo dài vàng, bé Bách ôm mẹ', focus: '50% 20%' },
     letter: {
       salutation: 'Gửi em – Nguyễn Thị Hồng Liên, vợ, mẹ và chị của chúng tôi,',
       body: [
@@ -121,7 +121,7 @@ const RECIPIENTS = {
     introLead: 'Hôm nay, Luân cùng anh Sơn, Tùng và Bách xin dành một khoảng lặng để nói lời cảm ơn. Vì sự dịu dàng em mang về nhà này, vì những bữa cơm sum họp có thêm tiếng cười, và vì em đã chọn trở thành một phần của gia đình Dạ Lan.',
     introDetails: ['01 NGƯỜI MỢ DỊU DÀNG', '03 LỜI CHÚC TỪ CẢ NHÀ', '01 TẤM LÒNG TRÂN QUÝ'],
     introNote: 'Mợ ơi, em ơi,<br>có thư cho em…',
-    photo: { src: 'assets/photos/bao-anh-va-tho.jpg', alt: 'Bảo Anh bế bé Thỏ trong ngày Tết' },
+    photo: { src: 'assets/photos/bao-anh-va-tho.jpg', alt: 'Bảo Anh bế bé Thỏ trong ngày Tết', focus: '50% 50%' },
     letter: {
       salutation: 'Gửi em – Bảo Anh, mợ của các cháu và vợ của Luân,',
       body: [
@@ -243,6 +243,8 @@ function openRecipient(key) {
   $('#intro-note').innerHTML = `${r.introNote} <span>↙</span>`;
   $('#intro-flower').innerHTML = bouquetSvg([0, 2, 3, 5, 4, 1], 'wine', 6);
   $('#intro-photo').src = r.photo.src; $('#intro-photo').alt = r.photo.alt;
+  // Điểm lấy nét riêng từng ảnh để khuôn mặt luôn nằm giữa khung (ảnh dọc rất dài sẽ bị cắt bớt trên/dưới)
+  $('#intro-photo').style.setProperty('--focus', r.photo.focus || '50% 50%');
   renderAlbum();
   $('#envelope-honorific').textContent = r.envelopeHonorific; $('#envelope-name').textContent = r.name;
   $('#letter-salutation').textContent = r.letter.salutation;
@@ -439,35 +441,102 @@ $('#lightbox-next').onclick = (e) => { e.stopPropagation(); openLightbox(lbIndex
 $('#lightbox').onclick = (e) => { if (e.target === e.currentTarget) closeLightbox(); };
 addEventListener('keydown', e => { if ($('#lightbox').hidden) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') openLightbox(lbIndex - 1); if (e.key === 'ArrowRight') openLightbox(lbIndex + 1); });
 
-/* ---------- Nhạc nền (Web Audio, không cần file) ---------- */
+/* ---------- Nhạc nền: bolero trữ tình (hướng nhạc Lệ Quyên) – Web Audio, không cần file ----------
+   Giai điệu tự soạn, giọng La thứ, nhịp 4/4 chậm ~66 BPM, guitar đệm điệu bolero, gõ nhẹ, tiếng dẫn có rung và luyến. */
 let audio = null;
 function makeMusic() {
   const ctx = new (window.AudioContext || window.webkitAudioContext)();
   const master = ctx.createGain(); master.gain.value = .0001; master.connect(ctx.destination);
-  const delay = ctx.createDelay(); delay.delayTime.value = .38; const fb = ctx.createGain(); fb.gain.value = .32; const wet = ctx.createGain(); wet.gain.value = .35;
-  delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(master);
-  const scale = [261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 783.99];
-  let step = 4, timer;
-  const pluck = (f, t, vol = .16, dur = 1.6) => {
-    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain();
-    o.type = 'sine'; o2.type = 'triangle'; o.frequency.value = f; o2.frequency.value = f * 2; o2.detune.value = 4;
-    const g2 = ctx.createGain(); g2.gain.value = .25;
-    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .02); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
-    o.connect(g); o2.connect(g2); g2.connect(g); g.connect(master); g.connect(delay);
-    o.start(t); o2.start(t); o.stop(t + dur + .1); o2.stop(t + dur + .1);
+  // Vang phòng tổng hợp (nhiễu trắng tắt dần) để tiếng ấm và sâu hơn
+  const verb = ctx.createConvolver();
+  { const len = Math.floor(ctx.sampleRate * 2.4), buf = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let c = 0; c < 2; c++) { const d = buf.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.4); }
+    verb.buffer = buf; }
+  const verbGain = ctx.createGain(); verbGain.gain.value = .3; verb.connect(verbGain); verbGain.connect(master);
+  const dry = ctx.createGain(); dry.connect(master); dry.connect(verb);
+  const noise = (() => { const b = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return b; })();
+
+  const BPM = 66, BEAT = 60 / BPM, BAR = BEAT * 4;
+  const hz = m => 440 * Math.pow(2, (m - 69) / 12);
+  // Hợp âm (số MIDI): bass chính, bass phụ (bậc 5) và ba nốt rải
+  const CHORDS = {
+    Am: { bass: 45, alt: 52, tones: [57, 60, 64] }, Dm: { bass: 50, alt: 45, tones: [57, 62, 65] },
+    E7: { bass: 40, alt: 47, tones: [56, 59, 62] }, G: { bass: 43, alt: 50, tones: [59, 62, 67] },
+    C: { bass: 48, alt: 43, tones: [55, 60, 64] }, F: { bass: 41, alt: 48, tones: [57, 60, 65] }
   };
-  const pad = (f, t) => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'sine'; o.frequency.value = f / 2; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.05, t + 1.5); g.gain.exponentialRampToValueAtTime(.0001, t + 7); o.connect(g); g.connect(master); o.start(t); o.stop(t + 7.2); };
-  let bar = 0;
-  const tick = () => {
-    const t = ctx.currentTime + .05;
-    if (bar % 4 === 0) pad([261.63, 349.23, 392, 220][(bar / 4) % 4], t);
-    step = Math.max(0, Math.min(scale.length - 1, step + [-2, -1, -1, 0, 1, 1, 2][Math.floor(Math.random() * 7)]));
-    pluck(scale[step], t); if (Math.random() < .35) pluck(scale[Math.max(0, step - 2)], t + .45, .09);
-    bar++; timer = setTimeout(tick, 900 + Math.random() * 300);
+  // Vòng hoà âm bolero quen thuộc, 16 ô nhịp
+  const PROG = ['Am', 'Dm', 'E7', 'Am', 'Am', 'Dm', 'G', 'C', 'F', 'Dm', 'E7', 'Am', 'Dm', 'Am', 'E7', 'Am'];
+  // Giai điệu: mỗi ô nhịp là danh sách [phách bắt đầu, độ dài (phách), nốt MIDI, luyến từ dưới lên (nửa cung)]
+  const MELODY = [
+    [[0, 1.5, 69, 2], [1.5, .5, 71], [2, 2, 72, 1]],
+    [[0, 1, 74], [1, 1, 72], [2, 2, 69, 2]],
+    [[0, 1.5, 68, 1], [1.5, .5, 71], [2, 1, 69], [3, 1, 68]],
+    [[0, 3, 64, 2]],
+    [[0, 1, 64], [1, 1, 69], [2, 1, 71], [3, 1, 72]],
+    [[0, 2, 74, 2], [2, 1, 77], [3, 1, 76]],
+    [[0, 1.5, 74, 1], [1.5, .5, 72], [2, 2, 71, 1]],
+    [[0, 3, 72, 2]],
+    [[0, 1, 72], [1, 1, 74], [2, 2, 76, 2]],
+    [[0, 1.5, 77, 1], [1.5, .5, 76], [2, 2, 74, 2]],
+    [[0, 1, 72], [1, 1, 71], [2, 1, 68], [3, 1, 71]],
+    [[0, 3, 69, 2]],
+    [[0, 1, 74], [1, 1, 72], [2, 1, 71], [3, 1, 69]],
+    [[0, 2, 72, 1], [2, 1, 71], [3, 1, 69]],
+    [[0, 1.5, 68, 1], [1.5, .5, 71], [2, 2, 64, 2]],
+    [[0, 3.5, 69, 2]]
+  ];
+
+  // Guitar nylon: triangle + sine quãng tám, lọc thông thấp hạ dần như dây đàn tắt
+  const pluck = (m, t, vol = .2, dur = 1.4) => {
+    const f = hz(m), o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), g2 = ctx.createGain(), fl = ctx.createBiquadFilter();
+    o.type = 'triangle'; o2.type = 'sine'; o.frequency.value = f; o2.frequency.value = f * 2; o2.detune.value = 3; g2.gain.value = .18;
+    fl.type = 'lowpass'; fl.frequency.setValueAtTime(Math.min(4200, f * 6), t); fl.frequency.exponentialRampToValueAtTime(Math.max(300, f * 1.5), t + dur);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .008); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    o.connect(fl); o2.connect(g2); g2.connect(fl); fl.connect(g); g.connect(dry);
+    o.start(t); o2.start(t); o.stop(t + dur + .05); o2.stop(t + dur + .05);
+  };
+  // Tiếng dẫn giai điệu: vào mềm, rung (vibrato) sau 0,4 giây, luyến từ nốt dưới lên như cách hát bolero
+  const lead = (m, t, beats, slide = 0, vol = .17) => {
+    const f = hz(m), f0 = slide ? f * Math.pow(2, -slide / 12) : f;
+    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), g2 = ctx.createGain(), fl = ctx.createBiquadFilter(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+    o.type = 'triangle'; o2.type = 'sine'; o2.detune.value = 5; g2.gain.value = .7;
+    [o, o2].forEach(x => { x.frequency.setValueAtTime(f0, t); x.frequency.exponentialRampToValueAtTime(f, t + .12); });
+    lfo.type = 'sine'; lfo.frequency.value = 5.3; lg.gain.setValueAtTime(0, t); lg.gain.linearRampToValueAtTime(9, t + .45);
+    lfo.connect(lg); lg.connect(o.detune); lg.connect(o2.detune);
+    fl.type = 'lowpass'; fl.frequency.value = 1900; fl.Q.value = .6;
+    const end = t + beats * BEAT - .06, hold = Math.max(t + .1, end - .25);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .09); g.gain.setValueAtTime(vol, hold); g.gain.exponentialRampToValueAtTime(.0001, end + .22);
+    o.connect(fl); o2.connect(g2); g2.connect(fl); fl.connect(g); g.connect(dry);
+    [o, o2, lfo].forEach(x => { x.start(t); x.stop(end + .3); });
+  };
+  // Gõ nhẹ: lúc lắc (maracas) và bongo
+  const shaker = (t, vol = .03) => { const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain(); s.buffer = noise; f.type = 'bandpass'; f.frequency.value = 6500; f.Q.value = 1.2; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + .09); s.connect(f); f.connect(g); g.connect(master); s.start(t); s.stop(t + .12); };
+  const bongo = (t, hi = false, vol = .14) => { const o = ctx.createOscillator(), g = ctx.createGain(), f = hi ? 230 : 150; o.type = 'sine'; o.frequency.setValueAtTime(f * 1.6, t); o.frequency.exponentialRampToValueAtTime(f, t + .04); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .006); g.gain.exponentialRampToValueAtTime(.0001, t + .22); o.connect(g); g.connect(dry); o.start(t); o.stop(t + .25); };
+
+  let bar = 0, next = 0, timer = null;
+  const scheduleBar = () => {
+    while (next < ctx.currentTime + .4) {
+      const t = next, idx = bar < 2 ? 0 : (bar - 2) % 16, ch = CHORDS[PROG[idx]];
+      // Đệm điệu bolero: bass – rải ba nốt (chùm ba) – bass phụ – hai nốt rải
+      pluck(ch.bass, t, .26, 1.8);
+      ch.tones.forEach((n, i) => pluck(n, t + BEAT * (1 + i / 3), .12, 1.1));
+      pluck(ch.alt, t + BEAT * 2, .22, 1.6);
+      pluck(ch.tones[1], t + BEAT * 3, .12, 1); pluck(ch.tones[2], t + BEAT * 3.5, .11, 1);
+      for (let i = 0; i < 8; i++) shaker(t + BEAT * i / 2, i % 2 ? .018 : .03);
+      bongo(t); bongo(t + BEAT * 2, true); bongo(t + BEAT * 3.5, true, .07);
+      if (bar >= 2) MELODY[idx].forEach(([b, d, m, s]) => lead(m, t + BEAT * b, d, s));
+      bar++; next += BAR;
+    }
+    timer = setTimeout(scheduleBar, 150);
   };
   return {
-    start() { ctx.resume(); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2); tick(); },
-    stop() { master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1); clearTimeout(timer); }
+    start() {
+      ctx.resume().catch(() => {});
+      bar = 0; next = ctx.currentTime + .1; clearTimeout(timer);
+      master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(.0001, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.9, ctx.currentTime + 2);
+      scheduleBar();
+    },
+    stop() { clearTimeout(timer); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(master.gain.value, ctx.currentTime); master.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + 1.2); }
   };
 }
 $('#sound').onclick = () => {
